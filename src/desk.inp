@@ -1,0 +1,17 @@
+# initial Nwalker
+1000
+# max Nwalker # times of Nwalker if < Nwalker(init)
+5
+# time-step / atomic unit
+1
+# number of steps
+1000
+# equilibrium steps # will be ratio if < 1
+0.2
+# sampling method # only vibrational supported
+vib
+# vibrational scale s, the coordinates would be [ -s, s ]
+1.0
+# points of 1d DVR gird
+100
+
