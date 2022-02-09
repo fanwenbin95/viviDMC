@@ -39,7 +39,7 @@ module para
     integer :: maxNwalker
     real(dp) :: dt ! time step
     real(dp) :: alpha ! === 0.5 / dt
-    real(dp) :: sigma ! === sqrt(dt/M)
+    real(dp), allocatable :: sigma(:) ! === sqrt(dt/m)
     integer :: Nstep ! number of total steps
     integer :: Neq ! number of equilibrium steps
 

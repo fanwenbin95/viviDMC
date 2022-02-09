@@ -1,13 +1,13 @@
 # initial Nwalker
-1000
+8000
 # max Nwalker # times of Nwalker if < Nwalker(init)
-5
+2
 # time-step / atomic unit
-1
+10
 # number of steps
-1000
+10000
 # equilibrium steps # will be ratio if < 1
-0.2
+0.1
 # sampling method # only vibrational supported
 vib
 # vibrational scale s, the coordinates would be [ -s, s ]

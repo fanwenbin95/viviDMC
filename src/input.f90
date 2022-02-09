@@ -149,6 +149,7 @@ module input
                         batch, Nframe, &
                         Nwalker, q, Eref, w, &
                         Natom, eleMass
+        use units, only: amu2me
         implicit none
         integer :: i
         integer :: batch_size
@@ -157,7 +158,7 @@ module input
         Nwalker = -1
         Nwalker(1) = N0
         alpha = 0.5d0 / dt
-        sigma = dsqrt(dt / sum(eleMass))
+        sigma = dsqrt(dt / eleMass / amu2me)
 
         allocate( q(3, Natom, maxNwalker) )
         q = -1d16

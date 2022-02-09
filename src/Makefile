@@ -6,7 +6,8 @@ FC = ifort
 FFLAGS = -CB -traceback -debug parallel -g \
 	-I${MKLROOT}/include/intel64/lp64 \
 	-I${MKLROOT}/include \
-	-lmkl_lapack95_lp64
+	-lmkl_lapack95_lp64 \
+	-lstdc++ -O2
 LDFLAGS = -lmkl_rt \
 	${MKLROOT}/lib/intel64/libmkl_lapack95_lp64.a \
 	-Wl,--start-group \
@@ -15,9 +16,12 @@ LDFLAGS = -lmkl_rt \
 	${MKLROOT}/lib/intel64/libmkl_core.a \
 	-Wl,--end-group \
 	-liomp5 -lpthread -lm -ldl \
-	-L${MKLROOT}/lib/intel64
+	-L${MKLROOT}/lib/intel64 \
+#	-lmbxlib -fopenmp -lfftw3 \
+#	-L$(MBX_HOME)/install/lib/static \
+#	-I$(MBX_HOME)/install/include
 
-MODOBJ = module.o input.o init.o prpgt.o
+MODOBJ = module.o input.o init.o prpgt.o ana.o
 OBJ = freq.o main.o \
 interface.o math.o util.o
 
@@ -28,7 +32,8 @@ interface.o math.o util.o
 
 deafult: $(MODOBJ) $(OBJ) $(POT).o
 	$(FC) $(FFLAGS) $^ -o $(EXE) $(LDFLAGS)
-	./$(EXE)
+#	./$(EXE)
+#	mv fort.999 1.xyz
 
 rm:
 	rm -f *.o *.mod

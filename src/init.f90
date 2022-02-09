@@ -6,6 +6,14 @@ module init
     
 contains
 
+    subroutine pgm_init
+        implicit none
+
+        call random_seed()
+        call pot_initial()
+
+    end subroutine
+
     subroutine walker_init
         implicit none
         integer :: frame, i

@@ -19,6 +19,8 @@ subroutine pot(q, v)
     call cart2bond(q, r)
     r(3) = dacos( (r(1)*r(1) + r(2)*r(2) - r(3)*r(3)) / (2d0*r(1)*r(2)) )
     call vibpot(r, v, 1)
+    ! r(1) = r(1) - 10d0
+    ! v = r(1) * r(1) * 0.184707d0! * 0.25d0
     ! Note that the author commented all detailed outputs of PES. 
 
 end subroutine pot
